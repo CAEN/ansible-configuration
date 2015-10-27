@@ -1,6 +1,5 @@
-- hosts: es-nodes
+- hosts: tag_opsworks_layer_es_masters_es_masters
   remote_user: root
-  connection: local
   roles:
     - common
     - elasticsearch

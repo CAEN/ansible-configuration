@@ -1,2 +1,2 @@
-[es-nodes]
-localhost
+[es]
+tag_opsworks_layer_es_masters_es_masters
