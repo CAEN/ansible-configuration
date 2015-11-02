@@ -20,8 +20,11 @@
   - name: update root's authorized keys for ansible
     copy: dest=/root/.ssh/authorized_keys src=files/root-authorized_keys group=root mode=0600 owner=root 
 
-    name: update sshd configuration
+  - name: update sshd configuration
     copy: dest=/etc/sshd/sshd_config src=files/sshd_config
+    notify:
+    - restart sshd
 
-    name: restart sshd
-    service: name=sshd state=restarted
+  handlers:
+    - name: restart sshd
+      service: name=sshd state=restarted
