@@ -21,7 +21,7 @@
     copy: dest=/root/.ssh/authorized_keys src=files/root-authorized_keys group=root mode=0600 owner=root 
 
   - name: update sshd configuration
-    copy: dest=/etc/sshd/sshd_config src=files/sshd_config
+    copy: dest=/etc/ssh/sshd_config src=files/sshd_config
     notify:
     - restart sshd
 
