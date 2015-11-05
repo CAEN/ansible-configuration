@@ -8,11 +8,17 @@
   - name: install packages
     yum: name={{ item }} state=latest
     with_items:
-    - yum-cron-security
+    - yum-cron
     - ansible
 
-  - name: configure yum-cron-security
-    copy: dest=/etc/yum/yum-cron-security.conf src=files/yum-cron-security.conf 
+  - name: remove yum-cron-security
+    yum: name=yum-cron-security state=absent
+
+  - name: remove yum-cron-security file
+    file: state=absent dest=/etc/yum/yum-cron-security.conf
+
+  - name: configure yum-cron
+    copy: dest=/etc/yum/yum-cron.conf src=files/yum-cron.conf 
   
   - name: configure ansible pull
     copy: dest=/etc/cron.d/ansible-pull src=files/ansible-pull
