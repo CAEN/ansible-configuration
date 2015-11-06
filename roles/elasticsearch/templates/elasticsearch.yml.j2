@@ -326,7 +326,10 @@ discovery.zen.ping.multicast.enabled: true
 # 2. Configure an initial list of master nodes in the cluster
 #    to perform discovery when new nodes (master or data) are started:
 #
-discovery.zen.ping.unicast.hosts: ["es-cluster01", "es-cluster02", "es-cluster03", "es-cluster04"]
+discovery.zen.ping.unicast.hosts: ["es-cluster01.engin.umich.edu", 
+                                   "es-cluster02.engin.umich.edu", 
+                                   "es-cluster03.engin.umich.edu", 
+                                   "es-cluster04.engin.umich.edu"]
 
 # EC2 discovery allows to use AWS EC2 API in order to perform discovery.
 #

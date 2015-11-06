@@ -1,4 +1,6 @@
-- hosts: tag_opsworks_layer_es_masters_es_masters
+- hosts: 
+  - tag_Purpose_es_master
+  - tag_Purpose_es_client
   remote_user: root
   roles:
     - common

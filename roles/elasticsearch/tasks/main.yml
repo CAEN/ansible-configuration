@@ -5,13 +5,19 @@
 - name: debug1
   debug: var={{ master }}
 
-- name: configure elasticsearch
-  template: src=elasticsearch.yml dest=/etc/elasticsearch/elasticsearch.yml
+- name: make sure directory for elasticsearch config exists
+  file: dest=/etc/elasticsearch state=directory
 
 - name: install elasticsearch
   yum: name=elasticsearch state=latest
   notify:
   - restart elasticsearch
+
+- name: make elasticsearch data dir
+  file: dest=/elasticsearch state=directory owner=elasticsearch group=elasticsearch
+
+- name: configure elasticsearch
+  template: src=elasticsearch.yml.j2 dest=/etc/elasticsearch/elasticsearch.yml
 
 - name: enable elasticsearch on boot
   service: name=elasticsearch enabled=yes
