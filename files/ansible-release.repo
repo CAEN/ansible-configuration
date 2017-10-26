@@ -1,0 +1,8 @@
+[ansible-release]
+name=ansible release
+baseurl=https://releases.ansible.com/ansible/rpm/release/epel-6-x86_64/
+gpgcheck=1
+gpgkey=https://releases.ansible.com/keys/RPM-GPG-KEY-ansible-release.pub
+skip_if_unavailable=True
+retries=3
+timeout=10

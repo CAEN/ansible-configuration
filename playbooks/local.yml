@@ -5,6 +5,12 @@
   - name: drop rsyslog file in place
     copy: dest=/etc/rsyslog.conf src=files/rsyslog.conf
 
+  - name: install ansible yum repo
+    copy: dest=/etc/yum.repos.d/ansible-release.repo src=files/ansible-release.repo
+
+  - name: install ansible RPM GPG key
+    copy: dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-ansible-release.pub src=files/RPM-GPG-KEY-ansible-release.pub
+
   - name: install packages
     yum: name={{ item }} state=latest
     with_items:
